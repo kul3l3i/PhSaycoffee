@@ -1,0 +1,374 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Pacifico&family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset some default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif; /* Elegant serif font for body text */
+    background-color: #121212; /* Dark background for a bold look */
+    color: #ffffff; /* White text for contrast */
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background: #000000; /* Solid black background for header */
+    padding: 15px 30px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar Styling */
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #ff9900; /* Pornhub-inspired orange */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    animation: slideIn 1s forwards;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: slideIn 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: #ffffff; /* White text for navbar links */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect using a pseudo-element */
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ff9900; /* Pornhub-inspired orange underline */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Active link styling */
+.nav-links li a.active {
+    color: #ff9900;
+}
+
+/* Hover effect for links */
+.nav-links li a:hover {
+    color: #ff9900;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    transform: scaleX(1);
+}
+
+.auth-links {
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideIn 2s forwards;
+    animation-delay: 0.7s;
+}
+
+.auth-links a {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .auth-links {
+        justify-content: center;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
+}
+
+
+
+/* Sign-in Container */
+.signin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-image: url('img/log2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 100px;
+    position: relative;
+}
+
+/* Background Overlay */
+.signin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better readability */
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+/* Content Section (Left) */
+.content-left {
+    color: #fff; /* White for text */
+    max-width: 500px;
+    z-index: 2;
+    line-height: 1.6;
+}
+
+.content-left h1 {
+    font-size: 54px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #FFCC00; /* Pornhub yellow */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Darker shadow for better contrast */
+}
+
+.content-left p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #fff; /* White for better contrast */
+}
+
+/* Sign-in Form (Right) */
+.signin-content {
+    background: #000; /* Black background */
+    padding: 40px 50px;
+    border-radius: 12px;
+    color: #FFCC00; /* Pornhub yellow */
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: center; 
+}
+
+/* Centered Member Login Heading */
+.signin-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #FFCC00; /* Pornhub yellow */
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Added shadow for contrast */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px; 
+    margin-bottom: 25px; 
+    border: 1px solid #FFCC00; /* Pornhub yellow border */
+    border-radius: 30px;
+    background: #fff; /* White background */
+    font-size: 16px;
+    color: #000; /* Black text */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #FFCC00; /* Pornhub yellow */
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.5); /* Yellow shadow */
+}
+
+/* Checkbox and Links */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 25px; 
+}
+
+.options a {
+    color: #FFCC00; /* Pornhub yellow */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.options a:hover {
+    color: #b5651d; /* Darker yellow on hover */
+}
+
+.options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Button Style */
+.btn {
+    background: linear-gradient(90deg, #FFCC00, #FF8C00); /* Yellow gradient */
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 10px; 
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #FF8C00, #FFCC00); /* Reverse gradient on hover */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Link */
+.footer-text {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+    color: #FFCC00; /* Pornhub yellow */
+}
+
+.footer-text a {
+    color: #FFCC00; /* Pornhub yellow */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: #b5651d; /* Darker yellow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signin {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .content-left {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .signin-content {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-left h1 {
+        font-size: 36px;
+    }
+
+    .content-left p {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+
+.loader {
+    border: 8px solid rgba(243, 243, 243, 0.6); /* Semi-transparent light grey */
+    border-top: 8px solid #FFCC00; /* Blue */
+    border-radius: 50%;
+    width: 60px; /* Slightly larger */
+    height: 60px; /* Slightly larger */
+    animation: spin 1.5s linear infinite; /* Faster spinning */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -30px; /* Center the loader */
+    z-index: 1000; /* Ensures it's on top of other content */
+    display: none; /* Hidden by default */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

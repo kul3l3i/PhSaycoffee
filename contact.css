@@ -1,0 +1,389 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Pacifico&family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset some default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif; /* Elegant serif font for body text */
+    background-color: #121212; /* Dark background for a bold look */
+    color: #ffffff; /* White text for contrast */
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background: #000000; /* Solid black background for header */
+    padding: 15px 30px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar Styling */
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #ff9900; /* Pornhub-inspired orange */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    animation: slideIn 1s forwards;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: slideIn 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: #ffffff; /* White text for navbar links */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect using a pseudo-element */
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ff9900; /* Pornhub-inspired orange underline */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Active link styling */
+.nav-links li a.active {
+    color: #ff9900;
+}
+
+/* Hover effect for links */
+.nav-links li a:hover {
+    color: #ff9900;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    transform: scaleX(1);
+}
+
+.auth-links {
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideIn 2s forwards;
+    animation-delay: 0.7s;
+}
+
+.auth-links a {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .auth-links {
+        justify-content: center;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
+}
+
+
+
+/* Main Container */
+main {
+    width: 85%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff; /* White background */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Heading Styles */
+h2, h3 {
+    color: #FFCC00; /* Pornhub yellow */
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    color: #FFCC00; /* Pornhub yellow */
+}
+
+/* Contact Container Styling */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000; /* Black for text */
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: #fafafa; /* Light gray for input fields */
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #FFCC00; /* Pornhub yellow */
+}
+
+/* Button Styling */
+.contact-form .btn {
+    padding: 15px 20px; /* Adjusted padding for a larger button */
+    background-color: #FFCC00; /* Pornhub yellow */
+    color: #000000; /* Black text */
+    font-size: 18px;
+    border: none;
+    border-radius: 25px; /* More rounded corners for a bolder look */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.contact-form .btn:hover {
+    background-color: #000000; /* Black on hover */
+    color: #FFCC00; /* Yellow text on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Map Styling */
+.map {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Information Container Styling */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+/* Contact Information Styling */
+.contact-info {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    color: #000000; /* Black for text */
+}
+
+/* Business Hours Styling */
+.business-hours {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    color: #000000; /* Black for text */
+    line-height: 1.6;
+}
+
+.business-hours p {
+    margin: 5px 0;
+}
+
+/* Social Media Links Styling */
+.social-media {
+    flex: 1;
+    text-align: center;
+}
+
+.social-media h3 {
+    margin-bottom: 15px;
+    color: #FFCC00; /* Pornhub yellow */
+}
+
+.social-media a {
+    display: block;
+    color: #FFCC00; /* Pornhub yellow */
+    text-decoration: none;
+    font-size: 18px;
+    margin: 8px 0;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #000000; /* Black on hover */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-about,
+.footer-links,
+.footer-schedule,
+.footer-contact {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+}
+
+.footer-about h4, .footer-links h4, .footer-schedule h4, .footer-contact h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-schedule ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li,
+.footer-schedule li {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+.social-icons a:hover {
+    color: #ffb74d; /* Optional hover color */
+}

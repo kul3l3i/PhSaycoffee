@@ -1,0 +1,817 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Pacifico&family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset some default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif; /* Elegant serif font for body text */
+    background-color: #121212; /* Dark background for a bold look */
+    color: #ffffff; /* White text for contrast */
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background: #000000; /* Solid black background for header */
+    padding: 15px 30px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar Styling */
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #ff9900; /* Pornhub-inspired orange */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    animation: slideIn 1s forwards;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: slideIn 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: #ffffff; /* White text for navbar links */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect using a pseudo-element */
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ff9900; /* Pornhub-inspired orange underline */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Active link styling */
+.nav-links li a.active {
+    color: #ff9900;
+}
+
+/* Hover effect for links */
+.nav-links li a:hover {
+    color: #ff9900;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    transform: scaleX(1);
+}
+
+.auth-links {
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideIn 2s forwards;
+    animation-delay: 0.7s;
+}
+
+.auth-links a {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .auth-links {
+        justify-content: center;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
+}
+
+
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+    border-radius: 15px;
+    background-color: #000; /* Black background for dark theme */
+}
+
+/* Slides */
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* Image styling */
+.mySlides img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(65%); /* Darker overlay for text visibility */
+}
+
+/* Banner content (text + button) */
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+}
+
+.banner-content h1 {
+    font-size: 4vw;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 20px;
+    color: #ffa31a; /* Bold orange for title */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.banner-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff; /* White for readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content .btn {
+    padding: 15px 30px;
+    background-color: #ffa31a; /* Bold orange for button */
+    color: #000; /* Black text on button */
+    text-decoration: none;
+    font-size: 2vw;
+    border-radius: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-content .btn:hover {
+    background-color: #333; /* Darker background on hover */
+    color: #ffa31a; /* Orange text on hover */
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: #ffa31a;
+    font-size: 2vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots (indicators) */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    background-color: #333; /* Dark gray for dots */
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #ffa31a; /* Bold orange for active dot */
+}
+
+/* Add fade-in animation */
+@keyframes fade {
+    from { opacity: 0.4 }
+    to { opacity: 1 }
+}
+
+.mySlides {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner-content h1 {
+        font-size: 6vw;
+    }
+    
+    .banner-content p {
+        font-size: 4vw;
+    }
+
+    .banner-content .btn {
+        font-size: 4vw;
+    }
+
+    .prev, .next {
+        font-size: 4vw;
+    }
+}
+
+/* Best Sellers Section Styling */
+.best-sellers-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 1100px;
+    background-color: #252525; /* Dark background */
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); /* Deep shadow for contrast */
+}
+
+.best-sellers-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #ffa31a; /* Bold yellow-orange accent color */
+    margin-bottom: 25px;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.best-sellers-section h2::after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background-color: #ff8800; /* Accent color */
+    display: block;
+    margin: 8px auto 0;
+    transition: width 0.4s ease;
+}
+
+.best-sellers-section h2:hover::after {
+    width: 100px;
+}
+
+/* Best Sellers Container */
+.best-sellers {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.best-seller-item {
+    flex: 1;
+    text-align: center;
+    padding: 25px;
+    background-color: #333333; /* Darker card background */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.best-seller-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Container */
+.img-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 95%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-container img:hover {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+}
+
+.best-seller-item h3 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: #ffa31a; /* Accent text color */
+    margin-top: 12px;
+}
+
+
+
+/* About Us Section */
+.aboutUs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(34, 34, 34, 0.9), rgba(17, 17, 17, 0.9)); /* Dark background for contrast */
+    border-radius: 12px;
+    overflow: hidden;
+    color: #f1f1f1; /* Light gray text for readability */
+}
+
+/* About Content */
+.aboutContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+/* About Image */
+.aboutImg {
+    flex: 1;
+    max-width: 350px;
+    transition: transform 0.4s ease;
+}
+
+.aboutImg:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+}
+
+/* About Text */
+.about-text {
+    flex: 2;
+    text-align: left;
+    line-height: 1.7;
+}
+
+/* Section Heading Styling */
+.aboutUs h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #ff9900; /* Pornhub-style orange */
+    margin-bottom: 25px;
+    position: relative;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.aboutUs h2::after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background-color: #ff9900; /* Accent color */
+    display: block;
+    margin: 8px auto 0;
+    transition: width 0.4s ease;
+}
+
+.aboutUs:hover h2::after {
+    width: 100px;
+}
+
+/* About Story Title */
+.about-text h3 {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    color: #f1f1f1; /* Light gray for contrast */
+    margin-top: 20px;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #ff9900; /* Orange button */
+    color: #111; /* Dark text for contrast */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #cc7a00; /* Darker orange on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .aboutContent {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .aboutImg {
+        max-width: 100%;
+    }
+}
+
+
+/* General Styles for Sections */
+section {
+    padding: 40px 20px;
+    background-color: #1c1c1c; /* Darker background color */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff9900; /* Bright orange for headings */
+}
+
+/* Testimonials Section Styles */
+.testimonials-section {
+    background: linear-gradient(145deg, #2d2d2d, #1c1c1c); /* Dark gradient background */
+    padding: 80px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.testimonial-item {
+    background-color: #333333; /* Dark background for testimonials */
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ff9900; /* Bright orange text */
+}
+
+.testimonial-item:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.testimonial-item img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    border: 4px solid #ff9900; /* Bright border color */
+    transition: transform 0.3s ease;
+}
+
+.testimonial-item img:hover {
+    transform: scale(1.12);
+}
+
+/* Refined underline for "What Our Customers Say" */
+.testimonials-section h2 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    color: #ff9900; /* Bright orange for emphasis */
+    display: inline-block;
+    margin: 0 0 25px;
+    font-size: 32px;
+    transition: transform 0.3s ease;
+}
+
+.testimonials-section h2:hover {
+    transform: translateY(-6px);
+}
+
+.testimonials-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 70px;
+    height: 5px;
+    background-color: #ff6600; /* Slightly darker orange underline */
+    transition: width 0.4s ease, left 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.testimonials-section h2:hover::after {
+    width: 90px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .testimonial-items {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .testimonial-item {
+        max-width: 85%;
+    }
+}
+
+
+
+/* Featured Drinks Section Styling */
+.featured-drinks-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 1100px;
+    background-color: #000000; /* Black background */
+    color: #f5f5f5; /* Light text color for readability */
+}
+
+/* Section Heading */
+.featured-drinks-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #ff9900; /* Pornhub-style vibrant orange */
+    margin-bottom: 25px;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.featured-drinks-section h2::after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background-color: #ff9900; /* Accent color */
+    display: block;
+    margin: 8px auto 0;
+}
+
+/* Featured Drinks Container */
+.featured-drinks {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Individual Drink Item */
+.featured-drink-item {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a; /* Dark gray background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-drink-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Container */
+.img-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 95%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-container img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Title and Description Styling */
+.featured-drink-item h3 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    color: #ff9900; /* Orange for titles */
+    margin-top: 12px;
+}
+
+.featured-drink-item p {
+    font-size: 16px;
+    color: #cccccc; /* Light gray for descriptions */
+    margin-top: 8px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .featured-drinks {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .featured-drink-item {
+        max-width: 100%;
+    }
+}
+
+/* Button Styling */
+.view-menu-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff9900; /* Orange button */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-menu-button:hover {
+    background-color: #e68a00; /* Slightly darker orange on hover */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-about,
+.footer-links,
+.footer-schedule,
+.footer-contact {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+}
+
+.footer-about h4, .footer-links h4, .footer-schedule h4, .footer-contact h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-schedule ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li,
+.footer-schedule li {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+.social-icons a:hover {
+    color: #ffb74d; /* Optional hover color */
+}
+
+
