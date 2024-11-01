@@ -217,12 +217,15 @@
         const username = localStorage.getItem('username');
 
         // Check if user is logged in
-        if (!username) {
-            // If not logged in, alert the user and redirect to sign-in page
-            alert("You need to be logged in to place an order.");
-            window.location.href = 'index.html'; // Redirect to sign-in page
-            return; // Exit the function
-        }
+       if (!username) {
+    // If not logged in, alert the user
+    alert("You need to be logged in to place an order.");
+    
+    // Redirect to sign-in page after alert is acknowledged
+    window.location.href = 'index.html'; // Redirect to sign-in page
+    return; // Exit the function
+}
+
 
         // Proceed if the user is logged in
         const customerName = username; // Use the logged-in username
